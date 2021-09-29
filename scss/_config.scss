@@ -1,0 +1,76 @@
+// USER VARIABLES SECTION
+$primary: #c57c40; // Accent Color
+$textcolor: #494949; // Text Color
+
+$fontsize: 16px; // Body Font Size
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+$OpenSans: 'OpenSans', sans-serif; // User Font Family
+$Lora: 'Lora', sans-serif; // User Font Family
+$NotoSans: 'NotoSans', sans-serif; // User Font Family
+
+@function max($numbers...) {
+	@return m#{a}x(#{$numbers});
+}
+  
+@function min($numbers...) {
+	@return m#{i}n(#{$numbers});
+}
+
+// IMPORT SECTION
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss'; // Bootstrap Reboot collection
+@import 'node_modules/mmenu-js/dist/mmenu';
+@import 'node_modules/mburger-css/dist/mburger';
+@import 'node_modules/@fancyapps/fancybox/dist/jquery.fancybox';
+@import 'node_modules/noty/lib/noty';
+@import 'node_modules/noty/lib/themes/mint';
+
+// FONTS LOAD SECTION
+@mixin font($fname, $fstyle, $fweight, $furl) {
+	@font-face {
+		font-family: $fname;
+		font-style: $fstyle;
+		font-weight: $fweight;
+		font-display: swap; // Uncomment to initially display system fonts
+		src: local($fname), url($furl) format('woff2');
+	}
+}
+
+@include font('OpenSans', normal, 300, '../fonts/OpenSans/opensanslight.woff2');
+@include font('OpenSans', normal, normal, '../fonts/OpenSans/opensans.woff2');
+@include font('OpenSans', normal, 600, '../fonts/OpenSans/opensanssemibold.woff2');
+
+@include font('Lora', italic, normal, '../fonts/Lora/Loraitalic.woff2');
+
+@include font('NotoSans', normal, normal, '../fonts/NotoSans/notosans.woff2');
+
+// GENERAL DOCUMENT STYLES
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+::placeholder {
+	color: #A5A5A5;
+}
+
+::selection {
+	background-color: $primary;
+	color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+	font-family: $OpenSans;
+	font-size: $fontsize;
+	min-width: 320px;
+	position: relative;
+	line-height: 1.3;
+	overflow-x: hidden;
+	color: $textcolor;
+}
